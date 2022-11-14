@@ -1,9 +1,11 @@
-import React, { forwardRef, useState } from 'react';
-import NavItem from './navItem';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import NavItem from './common/navItem';
 import Button from './common/button';
 import Burger from './common/burger';
+import Resume from '../Resume.pdf';
 
-const NavBar = (props, ref) => {
+const NavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,22 +17,20 @@ const NavBar = (props, ref) => {
   };
 
   return (
-    <nav ref={ref} className="navbar">
+    <nav onClick={toggleNavBar} className="navbar">
       <div className="nav-heading">
-        <a href="#home"><img className="nav-brand" src="images/logo.png"></img></a>
-        <Burger isOpen={isOpen} toggleNavBar={toggleNavBar}/>
+        <NavLink to="/"><img className="nav-brand" src="images/logo.png"></img></NavLink>
+        <Burger toggleNavBar={toggleNavBar} />
       </div>
       <ul className={navListClasses}>
-        <NavItem current={props.currentLink} label='about' toggleNavBar={toggleNavBar} />
-        <NavItem current={props.currentLink} label='experience' toggleNavBar={toggleNavBar} />
-        <NavItem current={props.currentLink} label='skills' toggleNavBar={toggleNavBar} />
-        <NavItem current={props.currentLink} label='projects' toggleNavBar={toggleNavBar} />
-        <NavItem current={props.currentLink} label='contact' toggleNavBar={toggleNavBar} />
-        <li className="nav-list__item"><Button name="resume"></Button></li>
+        <NavItem label='experience' />
+        <NavItem label='projects' />
+        <NavItem label='contact' />
+        <li className="list__item nav-list__item"><a href={Resume} rel="noopener noreferrer" target="_blank"><Button name="resume"></Button></a></li>
       </ul>
     </nav>
   );
 }
 
-export default forwardRef(NavBar);
+export default NavBar;
 
