@@ -40,7 +40,7 @@ const EducationBlock = () => {
   return (
     <>
       {schools.map(school => (
-        <ResumeCard date={school.date} title={school.title}
+        <ResumeCard key={school.title} date={school.date} title={school.title}
           subtitle={school.subtitle} icons={school.icons} list={school.list} />
       ))
       }
