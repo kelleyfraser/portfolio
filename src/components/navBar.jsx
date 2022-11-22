@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import NavItem from './common/navItem';
 import Button from './common/button';
 import Burger from './common/burger';
-import Resume from '../Resume.pdf';
+import Fraser_Resume from '../Fraser_Resume.pdf';
 
 const NavBar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
 
   let navListClasses = "list nav-list";
@@ -19,14 +18,14 @@ const NavBar = () => {
   return (
     <nav onClick={toggleNavBar} className="navbar">
       <div className="nav-heading">
-        <NavLink to="/"><img className="nav-brand" src="images/logo.png"></img></NavLink>
+        <NavLink to="/"><img className="nav-brand" src="/images/logo.png"></img></NavLink>
         <Burger toggleNavBar={toggleNavBar} />
       </div>
       <ul className={navListClasses}>
         <NavItem label='experience' />
         <NavItem label='projects' />
         <NavItem label='contact' />
-        <li className="list__item nav-list__item"><a href={Resume} rel="noopener noreferrer" target="_blank"><Button name="resume"></Button></a></li>
+        <li className="list__item nav-list__item"><a href={Fraser_Resume} rel="noopener noreferrer" target="_blank"><Button name="resume"></Button></a></li>
       </ul>
     </nav>
   );
