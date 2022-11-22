@@ -45,7 +45,7 @@ const ProjectsSection = () => {
         <div><h2>Projects</h2></div>
         <div className="projects-container">
           {projects.map(project => (
-            <ProjectCard title={project.title} about={project.about} languages={project.languages} image={project.image} url={project.url} />
+            <ProjectCard key={project.title} title={project.title} about={project.about} languages={project.languages} image={project.image} url={project.url} />
           ))}
         </div>
       </section>
