@@ -48,7 +48,7 @@ const WorkBlock = () => {
   return (
     <>
       {jobs.map(job => (
-        <ResumeCard date={job.date} title={job.title}
+        <ResumeCard key={job.title} date={job.date} title={job.title}
           subtitle={job.subtitle} icons={job.icons} list={job.list} />
       ))
       }
