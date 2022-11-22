@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Burger = ({isOpen, toggleNavBar}) => {
+const Burger = ({ isOpen, toggleNavBar }) => {
 
   const isExpanded = isOpen ? true : false;
   let classes = "burger-container";
