@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Axios, db } from '../firebase/firebaseConfig';
 import Button from './common/button';
 import FootBar from './footBar';
 
@@ -22,42 +23,37 @@ const ContactForm = () => {
     }));
   };
 
-  const submitEmail = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ mailerState });
-    const response = await fetch("http://localhost:5001/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        console.log(resData);
-        if (resData.status === "success") {
-          alert("Message Sent");
-        } else if (resData.status === "fail") {
-          alert("Message failed to send");
-        }
-      })
-      .then(() => {
-        setMailerState({
-          email: "",
-          firstName: "",
-          lastName: "",
-          message: "",
-        });
-      });
+    sendEmail();
+    setMailerState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      message: ""
+    });
   };
+
+  const sendEmail = () => {
+    Axios.post('https://us-central1-nodemailer-api-34dea.cloudfunctions.net/submit', mailerState).then(res => {
+      db.collection('emails').add({
+        firstName: mailerState.firstName,
+        lastName: mailerState.lastName,
+        email: mailerState.email,
+        message: mailerState.message,
+        time: new Date(),
+      })
+    }).catch(error => {
+      console.log(error);
+    })
+  }
 
   return (
     <>
       <section className="contact">
         <div id="contact" className="contact">
           <div><h2>Contact</h2></div>
-          <form onSubmit={submitEmail}>
+          <form onSubmit={handleSubmit}>
             <div className="input-group half-width">
               <label htmlFor="firstName">First Name</label>
               <input onChange={handleStateChange} type="text" name="firstName" value={mailerState.firstName}></input>
