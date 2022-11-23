@@ -540,6 +540,12 @@ a:hover {
     }
   }
 
+  @media screen and (min-width: 1500px) {
+    .experience {
+      margin-bottom: 120px;
+    }
+  }
+
   // --------------------------------------------SKILLS
   .skills {
     h3 {
