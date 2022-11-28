@@ -24,6 +24,7 @@ const NavBar = () => {
       </div>
       <ul className={navListClasses}>
         <NavItem current={location} label='experience' />
+        <NavItem current={location} label='skills' />
         <NavItem current={location} label='projects' />
         <NavItem current={location} label='contact' />
         <li className="list__item nav-list__item"><a href={Fraser_Resume} rel="noopener noreferrer" target="_blank"><Button name="resume"></Button></a></li>
