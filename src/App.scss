@@ -492,14 +492,13 @@ a:hover {
 
   // --------------------------------------------EXPERIENCE
   .experience {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 
     p {
       margin: 0;
     }
 
     .experience-content {
-      max-height: 60vh;
       box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
       border-radius: 5px;
       padding: 2rem;
@@ -508,7 +507,6 @@ a:hover {
       z-index: 10;
       max-width: 800px;
       margin: 0 auto;
-      overflow-y: auto;
 
       .card {
         display: flex;
@@ -548,6 +546,7 @@ a:hover {
 
   // --------------------------------------------SKILLS
   .skills {
+
     h3 {
       margin-bottom: 2rem;
       margin-top: 3rem;
