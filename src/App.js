@@ -6,6 +6,7 @@ import HomeSection from './components/homeSection';
 import NavBar from './components/navBar';
 import ProjectsSection from './components/projectsSection';
 import EducationBlock from './components/blocks/educationBlock';
+import SkillsSection from './components/skillsSection';
 import WorkBlock from './components/blocks/workBlock';
 import CoursesBlock from './components/blocks/coursesBlock';
 import NotFound from './components/notFound';
@@ -25,6 +26,7 @@ function App() {
           <Route path="courses" element={<CoursesBlock />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/skills" element={<SkillsSection />} />
         <Route path="/projects" element={<ProjectsSection />} />
         <Route path="/contact" element={<ContactForm />} />
         <Route path="*" element={<NotFound />} />
